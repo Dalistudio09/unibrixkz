@@ -1,0 +1,118 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  --color-navy: #0b1f3a;
+  --color-navy-deep: #061018;
+  --color-navy-mid: #122847;
+  --color-cyan: #0093fb;
+  --color-cyan-deep: #0078cc;
+  --color-cyan-soft: #e5f3fd;
+  --color-paper: #f3f6fa;
+  --color-fg: #0b1f3a;
+  --color-muted: #5c6d82;
+  --color-subtle: #8494a7;
+  --color-surface: #ffffff;
+  --color-line: #d5deea;
+  --color-whatsapp: #1f9e57;
+  --color-whatsapp-deep: #188a4a;
+  --color-danger: #b42318;
+
+  --font-sans: "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", "Source Sans 3", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+
+  --shadow-card:
+    0 0 0 1px rgb(11 31 58 / 0.06), 0 1px 2px rgb(11 31 58 / 0.04),
+    0 8px 24px rgb(11 31 58 / 0.05);
+  --shadow-card-hover:
+    0 0 0 1px rgb(11 31 58 / 0.08), 0 8px 28px rgb(11 31 58 / 0.1);
+  --shadow-nav: 0 1px 0 rgb(11 31 58 / 0.06), 0 8px 24px rgb(11 31 58 / 0.06);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  img {
+    outline: 1px solid rgb(11 31 58 / 0.08);
+    outline-offset: -1px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-cyan);
+    outline-offset: 3px;
+  }
+  body.menu-open .mobile-bar {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@utility font-display {
+  font-family: var(--font-display);
+}
+
+.photo-live {
+  filter: contrast(1.1) saturate(1.16) sepia(0.06);
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--color-surface) 7%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--color-surface) 7%, transparent) 1px,
+      transparent 1px
+    );
+  background-size: 3rem 3rem;
+  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
